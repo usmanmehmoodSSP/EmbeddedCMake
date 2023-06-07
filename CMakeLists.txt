@@ -7,14 +7,14 @@ project(
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB_RECURSE SRC Core/*.c Core/*.s Drivers/*.c)
+file(GLOB_RECURSE SRC Main/*.c Core/*.c Core/*.s Drivers/*.c)
 add_executable(EmbeddedCMake ${SRC})
 
 target_compile_definitions(EmbeddedCMake PRIVATE $<$<CONFIG:DEBUG>:DEBUG>
                                                  USE_HAL_DRIVER STM32F746xx)
 
 target_include_directories(
-  EmbeddedCMake PRIVATE Core/Inc Drivers/CMSIS/Device/ST/STM32F7xx/Include
+EmbeddedCMake PRIVATE Main Core/Inc Drivers/CMSIS/Device/ST/STM32F7xx/Include
                         Drivers/CMSIS/Include Drivers/STM32F7xx_HAL_Driver/Inc)
 
 target_link_libraries(
