@@ -5,6 +5,8 @@ project(
   VERSION 0.1
   LANGUAGES ASM C)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 file(GLOB_RECURSE SRC Core/*.c Core/*.s Drivers/*.c)
 add_executable(EmbeddedCMake ${SRC})
 
